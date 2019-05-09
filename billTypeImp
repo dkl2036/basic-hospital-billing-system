@@ -1,0 +1,120 @@
+
+//**********************************************************
+// Author: Danielle Lamb and Kirklyn Milgrim
+// Date: February 26, 2019
+// 
+// Implementation file billTypeImp.cpp
+// This file contains the definitions of the functions to 
+// implement the operations of the class billType.
+//**********************************************************
+
+#include <iostream>
+#include <string>
+#include <iomanip>
+#include "billType.h"
+
+using namespace std;
+
+// print pharmacy charges, room charges, doctor's fee, and total charges to user
+void billType::printBill() const
+{
+	cout << fixed << showpoint << setprecision(2);
+
+	cout << "Pharmacy Charges: $" << pharmacyCharges << endl;
+	cout << "Room Charges: $" << roomRent << endl;
+	cout << "Doctor's Fee: $" << doctorFee << endl;
+	cout << "*************************************" << endl;
+	cout << "Total Charges: $" << pharmacyCharges + roomRent + doctorFee << endl;
+	cout << "*************************************" << endl;
+
+}
+
+// constructor 
+void billType::setInfo(string id, double phCharges, double rRent,
+	double docFee)
+{
+	ID = id;
+	pharmacyCharges = phCharges;
+	roomRent = rRent;
+}
+
+// sets id
+void billType::setID(string id)
+{
+	ID = id;
+}
+
+// returns id
+string billType::getID()
+{
+	return ID;
+}
+
+// sets pharmacy charges to charges
+void billType::setPharmacyCharges(double charges)
+{
+	pharmacyCharges = charges;
+}
+
+// returns pharmacy charges
+double billType::getPharmacyCharges()
+{
+	return pharmacyCharges;
+}
+
+// updates charges with values from pharmacyCharges
+void billType::updatePharmacyCharges(double charges)
+{
+	pharmacyCharges += charges; 
+}
+
+// sets room rent to charges 
+void billType::setRoomRent(double charges)
+{
+	roomRent = charges;
+}
+
+// returns room rent
+double billType::getRoomRent()
+{
+	return roomRent;
+}
+
+// updates charges with values from roomRent
+void billType::updateRoomRent(double charges)
+{
+	roomRent += charges;
+}
+
+// sets doctor's fee to charges 
+void billType::setDoctorFee(double charges)
+{
+	doctorFee = charges;
+}
+
+// returns doctor fee
+double billType::getDoctorFee()
+{
+	return doctorFee;
+}
+
+// updates charges with values from doctorFee
+void billType::updateDoctorFee(double charges)
+{
+	doctorFee += charges;
+}
+
+// returns sum of pharmacyCharges, roomRent, and doctorFee
+double billType::billingAmount() 
+{
+	return pharmacyCharges + roomRent + doctorFee;
+}
+
+// deconstructor 
+billType::billType(string id, double phCharges, double rRent, double docFee)
+{
+	id = "";
+	phCharges = 0;
+	rRent = 0;
+	docFee = 0;
+}
